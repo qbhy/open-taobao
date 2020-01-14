@@ -1,0 +1,19 @@
+{
+  "name": "96qbhy/open-taobao",
+  "description": "淘宝开放平台sdk",
+  "authors": [
+    {
+      "name": "qbhy",
+      "email": "96qbhy@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "hanson/foundation-sdk": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Qbhy\\OpenTaobao\\": "src/"
+    }
+  }
+}
