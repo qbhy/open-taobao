@@ -9,7 +9,11 @@
   ],
   "require": {
     "php": "^7.1",
-    "hanson/foundation-sdk": "^3.0"
+    "hanson/foundation-sdk": "^3.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "laravel/framework": "^6.0"
   },
   "autoload": {
     "psr-4": {

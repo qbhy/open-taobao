@@ -4,6 +4,8 @@
 namespace Qbhy\OpenTaobao;
 
 
+use Psr\Http\Message\ResponseInterface;
+
 class Http extends \Hanson\Foundation\Http
 {
     /** @var OpenTaobao */
@@ -16,19 +18,26 @@ class Http extends \Hanson\Foundation\Http
 
     public function exec($method, array $data = [])
     {
-        return $this->post('http://gw.api.taobao.com/router/rest', $this->buildParams(array_merge($data, compact('method'))));
+        return $this->decodeResponse(
+            $this->post('http://gw.api.taobao.com/router/rest', $this->buildParams(array_merge($data, compact('method'))))
+        );
+    }
+
+    protected function decodeResponse(ResponseInterface $response)
+    {
+        return @json_decode((string)$response->getBody(), true);
     }
 
     protected function buildParams(array $params): array
     {
         $params = array_merge($params, [
-            'app_key' => $this->app->getConfig('app_key'),
+            'app_key' => $this->app->getAppKey(),
             'v' => '2.0',
             'format' => 'json',
             'sign_method' => 'md5',
             'timestamp' => date("Y-m-d H:i:s"),
         ]);
-        $params['sign'] = $this->generateSign($params, $this->app->getConfig('app_secret'));
+        $params['sign'] = $this->generateSign($params, $this->app->getSecret());
         return $params;
     }
 

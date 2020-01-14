@@ -17,6 +17,10 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['http'] = function (OpenTaobao $openTaobao) {
             return new Http($openTaobao);
         };
+
+        $pimple['tbk'] = function (OpenTaobao $openTaobao) {
+            return new Tbk($openTaobao);
+        };
     }
 
 }
