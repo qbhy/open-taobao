@@ -18,7 +18,7 @@ class Tbk extends Module
      * @param int $platform 链接形式：1：PC，2：无线，默认：１
      * @return array
      */
-    public function getRecommends($numIid, $fields, $count = 20, $platform = 1)
+    public function itemRecommends($numIid, $fields, $count = 20, $platform = 1)
     {
         return $this->exec('taobao.tbk.item.recommend.get', [
             'fields' => $fields,
@@ -43,6 +43,35 @@ class Tbk extends Module
             'platform' => $platform,
         ]);
     }
+
+    /**
+     * @param string $q 查询词
+     * @param string $fields 需返回的字段列表
+     * @param array $params
+     * @return array
+     */
+    public function getShop($q, $fields, array $params = [])
+    {
+        return $this->exec('taobao.tbk.shop.get', array_merge(compact('q', 'fields'), $params));
+    }
+
+    /**
+     * @param string $userId 卖家Id
+     * @param string $fields 需返回的字段列表
+     * @param int $count 返回数量，默认20，最大值40
+     * @param int $platform 链接形式：1：PC，2：无线，默认：１
+     * @return array
+     */
+    public function shopRecommends($userId, $fields, $count = 20, $platform = 1)
+    {
+        return $this->exec('taobao.tbk.shop.recommend.get', [
+            'user_id' => $userId,
+            'fields' => $fields,
+            'count' => $count,
+            'platform' => $platform,
+        ]);
+    }
+
 
     /**
      * 淘宝客-推广者-物料搜索
