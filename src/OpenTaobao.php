@@ -26,5 +26,13 @@ class OpenTaobao extends Foundation
         return $this->getConfig('app_key');
     }
 
+    /*
+     * 通用方法
+     */
+    public function request($method, array $data)
+    {
+        return $this->http->exec($method, $data);
+    }
+
 
 }

@@ -18,6 +18,9 @@ $app = new Qbhy\OpenTaobao\OpenTaobao([
 
 // 获取推荐商品
 $app->tbk->getRecommends('595866143271', 'title');
+
+// 部分API没有封装成具体方法，你也可以自行调用 request 方法
+$app->request('方法', ['参数'=> '值']);
 ```
 
 ## 测试 - tests
