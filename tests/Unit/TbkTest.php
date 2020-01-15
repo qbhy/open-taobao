@@ -49,6 +49,13 @@ class TbkTest extends TestCase
         $this->assertOk($result);
     }
 
+    public function testTqg()
+    {
+        ($result = $this->getApp()->tbk->tqg(getenv('taobao.adZoneId'), 'click_url,pic_url,reserve_price,zk_final_price,total_amount,sold_num,title,category_name,start_time,end_time', '2016-08-09 09:00:00', date('Y-m-d H:i:s')));
+
+        $this->assertOk($result);
+    }
+
     public function testSearchMaterial()
     {
         ($result = $this->getApp()->tbk->searchMaterial(getenv('taobao.adZoneId'), ['q' => '运动鞋']));

@@ -102,9 +102,23 @@ class Tbk extends Module
         return $this->exec('taobao.tbk.uatm.favorites.get', array_merge(compact('fields'), $params));
     }
 
+    /**
+     * 淘抢购api
+     * @param string $adZoneId 推广位id（推广位申请方式：http://club.alimama.com/read.php?spm=0.0.0.0.npQdST&tid=6306396&ds=1&page=1&toread=1）
+     * @param string $fields 需返回的字段列表
+     * @param string $startTime 最早开团时间，示例：2016-08-09 09:00:00
+     * @param string $endTime 最晚开团时间，示例：2016-08-09 09:00:00
+     * @param array $params page_no、page_size
+     * @return array
+     */
     public function tqg(string $adZoneId, string $fields, string $startTime, string $endTime, array $params = [])
     {
-        return $this->exec('', array_merge([], $params));
+        return $this->exec('taobao.tbk.ju.tqg.get', array_merge([
+            'adzone_id' => $adZoneId,
+            'fields' => $fields,
+            'start_time' => $startTime,
+            'end_time' => $endTime
+        ], $params));
     }
 
     /**
