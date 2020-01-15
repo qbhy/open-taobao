@@ -132,6 +132,28 @@ class Tbk extends Module
     }
 
     /**
+     * 淘宝客-公用-阿里妈妈推广券详情查询
+     * @param array $params https://open.taobao.com/api.htm?docId=31106&docType=2
+     * @return array
+     */
+    public function getCoupon(array $params)
+    {
+        return $this->exec('taobao.tbk.coupon.get', $params);
+    }
+
+    /**
+     * 淘宝客-公用-淘口令生成
+     * @param string $text 口令弹框内容
+     * @param string $url 口令跳转目标页
+     * @param array $params https://open.taobao.com/api.htm?docId=31127&docType=2
+     * @return array
+     */
+    public function createTpwd(string $text, string $url, array $params = [])
+    {
+        return $this->exec('taobao.tbk.tpwd.create', array_merge(compact('text', 'url'), $params));
+    }
+
+    /**
      * 淘宝客-推广者-物料搜索
      * @param string $adZoneId mm_xxx_xxx_12345678三段式的最后一段数字
      * @param array $params 参数太多了，看链接 https://open.taobao.com/api.htm?docId=35896&docType=2

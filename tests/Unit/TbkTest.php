@@ -63,6 +63,21 @@ class TbkTest extends TestCase
         $this->assertOk($result);
     }
 
+    public function testGetCoupon()
+    {
+        ($result = $this->getApp()->tbk->getCoupon(['item_id' => 595866143271]));
+
+        $this->assertOk($result);
+    }
+
+    public function testCreateTpwd()
+    {
+        $url = 'https://s.click.taobao.com/t?e=m%3D2%26s%3DykVdG%2FSTWGYcQipKwQzePOeEDrYVVa64yK8Cckff7TVRAdhuF14FMUx2oa22hBKot4hWD5k2kjN9z6VOy6%2FO%2BmeGYUoL%2FvPD88zN0I43T14HR6oXjs5UWvpYwDqYGcT3IWLb4DzFlElvJrMBQHqrMC5iLofPfeZ0kxF7PgHWkpZ2xS2nx57oEz4hwuVIl3bvk1ghiT6uV651IdtMHONLYcYMXU3NNCg%2F&union_lens=lensId:0bb790e7_0d65_16fa8285766_9036';
+        ($result = $this->getApp()->tbk->createTpwd('测试内容1', $url));
+
+        $this->assertOk($result);
+    }
+
     public function testSearchMaterial()
     {
         ($result = $this->getApp()->tbk->searchMaterial(getenv('taobao.adZoneId'), ['q' => '运动鞋']));
