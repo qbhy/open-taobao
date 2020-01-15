@@ -45,6 +45,7 @@ class Tbk extends Module
     }
 
     /**
+     * 淘宝客-推广者-店铺搜索
      * @param string $q 查询词
      * @param string $fields 需返回的字段列表
      * @param array $params
@@ -56,6 +57,7 @@ class Tbk extends Module
     }
 
     /**
+     * 淘宝客-公用-店铺关联推荐
      * @param string $userId 卖家Id
      * @param string $fields 需返回的字段列表
      * @param int $count 返回数量，默认20，最大值40
@@ -72,6 +74,38 @@ class Tbk extends Module
         ]);
     }
 
+    /**
+     * 淘宝客-推广者-选品库宝贝信息
+     * @param string $adZoneId 推广位id，需要在淘宝联盟后台创建；且属于appkey备案的媒体id（siteid），如何获取adzoneid，请参考，http://club.alimama.com/read-htm-tid-6333967.html?spm=0.0.0.0.msZnx5
+     * @param string $favoritesId 选品库的id
+     * @param string $fields 需要输出则字段列表，逗号分隔
+     * @param array $params 其余字段请查看 https://open.taobao.com/api.htm?docId=26619&docType=2
+     * @return array
+     */
+    public function favoritesItems($adZoneId, $favoritesId, $fields, array $params = [])
+    {
+        return $this->exec('taobao.tbk.uatm.favorites.item.get', array_merge([
+            'adzone_id' => $adZoneId,
+            'favorites_id' => $favoritesId,
+            'fields' => $fields,
+        ], $params));
+    }
+
+    /**
+     * 淘宝客-推广者-选品库宝贝列表
+     * @param string $fields
+     * @param array $params 其余字段请查看 https://open.taobao.com/api.htm?docId=26620&docType=2
+     * @return array
+     */
+    public function favoritesList($fields, array $params = [])
+    {
+        return $this->exec('taobao.tbk.uatm.favorites.get', array_merge(compact('fields'), $params));
+    }
+
+    public function tqg(string $adZoneId, string $fields, string $startTime, string $endTime, array $params = [])
+    {
+        return $this->exec('', array_merge([], $params));
+    }
 
     /**
      * 淘宝客-推广者-物料搜索

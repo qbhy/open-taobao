@@ -34,6 +34,21 @@ class TbkTest extends TestCase
         $this->assertOk($result);
     }
 
+
+    public function testFavoritesList()
+    {
+        ($result = $this->getApp()->tbk->favoritesList('favorites_title,favorites_id,type'));
+
+        $this->assertOk($result);
+    }
+
+    public function testFavoritesItems()
+    {
+        ($result = $this->getApp()->tbk->favoritesItems(getenv('taobao.adZoneId'), getenv('taobao.favoritesId'), 'num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick,shop_title,zk_final_price_wap,event_start_time,event_end_time,tk_rate,status,type'));
+
+        $this->assertOk($result);
+    }
+
     public function testSearchMaterial()
     {
         ($result = $this->getApp()->tbk->searchMaterial(getenv('taobao.adZoneId'), ['q' => '运动鞋']));

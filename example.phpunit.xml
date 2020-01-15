@@ -19,5 +19,6 @@
         <env name="taobao.key" value="xxx"/>
         <env name="taobao.secret" value="xxx"/>
         <env name="taobao.adZoneId" value="123"/>
+        <env name="taobao.favoritesId" value="123"/>
     </php>
 </phpunit>
