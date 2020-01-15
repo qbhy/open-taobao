@@ -30,5 +30,12 @@
         "psr-4": {
             "OpenTaobao\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Qbhy\\OpenTaobao\\LaravelServiceProvider"
+            ]
+        }
     }
 }
