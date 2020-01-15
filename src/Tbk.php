@@ -164,6 +164,28 @@ class Tbk extends Module
     }
 
     /**
+     * 淘宝客-推广者-新用户订单明细查询
+     * @param string $activityId 活动id， 活动名称与活动ID列表，请参见 https://tbk.bbs.taobao.com/detail.html?appId=45301&postId=8599277
+     * @param array $params https://open.taobao.com/api.htm?docId=33892&docType=2
+     * @return array
+     */
+    public function newUserOrder($activityId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.dg.newuser.order.get', array_merge(['activity_id' => $activityId], $params));
+    }
+
+    /**
+     * 淘宝客-推广者-物料精选
+     * @param string $adZoneId mm_xxx_xxx_xxx的第三位
+     * @param array $params https://open.taobao.com/api.htm?docId=33947&docType=2
+     * @return array
+     */
+    public function materialOptimus($adZoneId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.dg.optimus.material', array_merge(['adzone_id' => $adZoneId], $params));
+    }
+
+    /**
      * 淘宝客-推广者-物料搜索
      * @param string $adZoneId mm_xxx_xxx_12345678三段式的最后一段数字
      * @param array $params 参数太多了，看链接 https://open.taobao.com/api.htm?docId=35896&docType=2

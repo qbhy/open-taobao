@@ -85,6 +85,20 @@ class TbkTest extends TestCase
         $this->assertOk($result);
     }
 
+    public function testNewUserOrder()
+    {
+        ($result = $this->getApp()->tbk->newUserOrder(getenv('taobao.activityId') ?: '119013_2'));
+
+        $this->assertOk($result);
+    }
+
+    public function testMaterialOptimus()
+    {
+        ($result = $this->getApp()->tbk->materialOptimus(getenv('taobao.adZoneId')));
+
+        $this->assertOk($result);
+    }
+
     public function testSearchMaterial()
     {
         ($result = $this->getApp()->tbk->searchMaterial(getenv('taobao.adZoneId'), ['q' => '运动鞋']));
