@@ -264,7 +264,7 @@ class Tbk extends Module
      * 淘宝客-服务商-官方活动转链
      * @param string $adZoneId 推广位id，mm_xx_xx_xx pid三段式中的第三段
      * @param string $siteId 推广位id，mm_xx_xx_xx pid三段式中的第二段
-     * @param $promotionSceneId 官方活动ID，从官方活动页获取
+     * @param string $promotionSceneId 官方活动ID，从官方活动页获取
      * @param array $params https://open.taobao.com/api.htm?docId=41921&docType=2
      * @return array
      */
