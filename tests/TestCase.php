@@ -24,7 +24,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             $this->assertTrue(true);
         } else {
             var_dump($result);
-            $this->assertTrue(false, $result['error_response']['sub_msg']);
+            $this->assertTrue(false, $result['error_response']['sub_msg'] ?? $result['error_response']['msg']);
         }
 
     }

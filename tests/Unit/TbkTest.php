@@ -105,4 +105,18 @@ class TbkTest extends TestCase
 
         $this->assertOk($result);
     }
+
+    public function testShoppingGuide()
+    {
+        ($result = $this->getApp()->tbk->shoppingGuide(getenv('taobao.activityId')));
+
+        $this->assertOk($result);
+    }
+
+    public function testCreateTlj()
+    {
+        var_dump($result = $this->getApp()->tbk->createTlj(getenv('taobao.adZoneId'), '595866143271', '测试淘礼金', 10, 1));
+
+        $this->assertOk($result);
+    }
 }

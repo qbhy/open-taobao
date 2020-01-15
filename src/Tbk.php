@@ -196,4 +196,130 @@ class Tbk extends Module
         return $this->exec('taobao.tbk.dg.material.optional', array_merge($params, ['adzone_id' => $adZoneId]));
     }
 
+    /**
+     * 淘宝客-推广者-拉新活动对应数据查询
+     * @param string $activityId 活动id， 活动名称与活动ID列表，请参见https://tbk.bbs.taobao.com/detail.html?appId=45301&postId=8599277
+     * @param array $params https://open.taobao.com/api.htm?docId=36836&docType=2
+     * @return array
+     */
+    public function shoppingGuide(string $activityId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.dg.newuser.order.sum', array_merge([
+            'activity_id' => $activityId,
+            'page_no' => $params['page_no'] ?? 1,
+            'page_size' => $params['page_size'] ?? 20,
+        ], $params));
+    }
+
+    /**
+     * 淘宝客-推广者-图文内容效果数据
+     * @param array $option https://open.taobao.com/api.htm?docId=37130&docType=2
+     * @return array
+     */
+    public function getEffectContent(array $option = [])
+    {
+        return $this->exec('taobao.tbk.content.effect.get', compact('option'));
+    }
+
+    /**
+     * 淘宝客-推广者-淘礼金创建
+     * @param string $adZoneId 广告位
+     * @param string $itemId 宝贝id
+     * @param string $name 淘礼金名称，最大10个字符
+     * @param int $totalNum 淘礼金总个数
+     * @param float $perFace 单个淘礼金面额，支持两位小数，单位元
+     * @param array $params https://open.taobao.com/api.htm?docId=40173&docType=2
+     * @return array
+     */
+    public function createTlj(string $adZoneId, string $itemId, $name, $totalNum, $perFace, array $params = [])
+    {
+        return $this->exec('taobao.tbk.dg.vegas.tlj.create', array_merge([
+            'adzone_id' => $adZoneId,
+            'item_id' => $itemId,
+            'total_num' => $totalNum,
+            'name' => $name,
+            'per_face' => $perFace,
+            'user_total_win_num_limit' => $params['user_total_win_num_limit'] ?? 1,
+            'security_switch' => $params['security_switch'] ?? true,
+            'send_start_time' => $params['send_start_time'] ?? date('Y-m-d H:i:s'),
+        ], $params));
+    }
+
+    /**
+     * 淘宝客-推广者-官方活动转链
+     * @param string $adZoneId 推广位id，mm_xx_xx_xx pid三段式中的第三段。adzone_id需属于appKey拥有者
+     * @param string $promotionSceneId 官方活动ID，从官方活动页获取
+     * @param array $params https://open.taobao.com/api.htm?docId=41918&docType=2
+     * @return array
+     */
+    public function activityLink($adZoneId, $promotionSceneId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.activitylink.get', array_merge([
+            'adzon_id' => $adZoneId,
+            'promotion_scene_id' => $promotionSceneId,
+        ], $params));
+    }
+
+    /**
+     * 淘宝客-服务商-官方活动转链
+     * @param string $adZoneId 推广位id，mm_xx_xx_xx pid三段式中的第三段
+     * @param string $siteId 推广位id，mm_xx_xx_xx pid三段式中的第二段
+     * @param $promotionSceneId 官方活动ID，从官方活动页获取
+     * @param array $params https://open.taobao.com/api.htm?docId=41921&docType=2
+     * @return array
+     */
+    public function activityLinkTool($adZoneId, $siteId, $promotionSceneId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.sc.activitylink.toolget', array_merge([
+            'adzone_id' => $adZoneId,
+            'promotion_scene_id' => $promotionSceneId,
+            'site_id' => $siteId,
+        ], $params));
+    }
+
+    /**
+     * 淘宝客-推广者-处罚订单查询
+     * @param array $option https://open.taobao.com/api.htm?docId=42050&docType=2
+     * @return array
+     */
+    public function punishOrder(array $option = [])
+    {
+        return $this->exec('taobao.tbk.dg.punish.order.get', [
+            'af_order_option' => $option
+        ]);
+    }
+
+    /**
+     * 淘宝客-推广者-淘礼金发放及使用报表
+     * @param string $rights 实例ID
+     * @return array
+     */
+    public function instanceRepoort(string $rights)
+    {
+        return $this->exec('taobao.tbk.dg.vegas.tlj.instance.report', [
+            'rights_id' => $rights,
+        ]);
+    }
+
+    /**
+     * 媒体导购单选品
+     * @param array $params
+     * @return array
+     */
+    public function updateWish(array $params)
+    {
+        return $this->exec('taobao.tbk.dg.wish.update', ['param0' => $params]);
+    }
+
+    /**
+     * 媒体淘客导购单查询
+     * @param string $wishId 愿望ID
+     * @return array
+     */
+    public function withList($wishId)
+    {
+        return $this->exec('taobao.tbk.dg.wish.list', ['param0' => ['with_list_id' => $wishId]]);
+    }
+
+
 }
