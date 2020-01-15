@@ -13,6 +13,11 @@ abstract class Module
         $this->app = $app;
     }
 
+    /**
+     * @param $method
+     * @param array $data
+     * @return array
+     */
     public function exec($method, array $data = [])
     {
         return $this->app->http->exec($method, $data);

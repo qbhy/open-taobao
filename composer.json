@@ -1,23 +1,29 @@
 {
-  "name": "96qbhy/open-taobao",
-  "description": "淘宝开放平台sdk",
-  "authors": [
-    {
-      "name": "qbhy",
-      "email": "96qbhy@gmail.com"
+    "name": "96qbhy/open-taobao",
+    "description": "淘宝开放平台sdk",
+    "authors": [
+        {
+            "name": "qbhy",
+            "email": "96qbhy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "hanson/foundation-sdk": "^3.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "laravel/framework": "^6.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qbhy\\OpenTaobao\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenTaobao\\Tests\\": "tests/"
+        }
     }
-  ],
-  "require": {
-    "php": "^7.1",
-    "hanson/foundation-sdk": "^3.0",
-    "ext-json": "*"
-  },
-  "require-dev": {
-    "laravel/framework": "^6.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Qbhy\\OpenTaobao\\": "src/"
-    }
-  }
 }
