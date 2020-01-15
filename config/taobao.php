@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app_key' => 'xxx',
-    'app_secret' => 'xxx',
-    'debug' => true,
+    'app_key' => env('TAOBAO_KEY'),
+    'app_secret' => env('TAOBAO_SECRET'),
+    'debug' => env('TAOBAO_DEBUG', true),
 ];
