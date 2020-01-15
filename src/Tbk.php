@@ -10,6 +10,14 @@ namespace Qbhy\OpenTaobao;
  */
 class Tbk extends Module
 {
+    /**
+     * 淘宝客-公用-商品关联推荐
+     * @param string $numIid 商品Id
+     * @param string $fields 需返回的字段列表
+     * @param int $count 返回数量，默认20，最大值40
+     * @param int $platform 链接形式：1：PC，2：无线，默认：１
+     * @return array
+     */
     public function getRecommends($numIid, $fields, $count = 20, $platform = 1)
     {
         return $this->exec('taobao.tbk.item.recommend.get', [
@@ -20,10 +28,31 @@ class Tbk extends Module
         ]);
     }
 
+    /**
+     * 淘宝客-公用-淘宝客商品详情查询(简版)
+     * @param string $numIids 商品ID串，用,分割，最大40个
+     * @param int $platform 链接形式：1：PC，2：无线，默认：１
+     * @param null $ip ip地址，影响邮费获取，如果不传或者传入不准确，邮费无法精准提供
+     * @return array
+     */
+    public function itemInfo($numIids, $platform = 1, $ip = null)
+    {
+        return $this->exec('taobao.tbk.item.info.get', [
+            'num_iids' => $numIids,
+            'ip' => $ip,
+            'platform' => $platform,
+        ]);
+    }
+
+    /**
+     * 淘宝客-推广者-物料搜索
+     * @param string $adZoneId mm_xxx_xxx_12345678三段式的最后一段数字
+     * @param array $params 参数太多了，看链接 https://open.taobao.com/api.htm?docId=35896&docType=2
+     * @return array
+     */
     public function searchMaterial($adZoneId, array $params)
     {
         return $this->exec('taobao.tbk.dg.material.optional', array_merge($params, ['adzone_id' => $adZoneId]));
     }
-
 
 }

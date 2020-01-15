@@ -17,4 +17,15 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'app_secret' => getenv('taobao.secret'),
         ]);
     }
+
+    public function assertOk(array $result)
+    {
+        if (empty($result['error_response'])) {
+            $this->assertTrue(true);
+        } else {
+            dump($result);
+            $this->assertTrue(false, $result['error_response']['sub_msg']);
+        }
+
+    }
 }
