@@ -154,6 +154,16 @@ class Tbk extends Module
     }
 
     /**
+     * @param string $adZoneId 推广位
+     * @param array $params https://open.taobao.com/api.htm?docId=31137&docType=2
+     * @return array
+     */
+    public function getContent(string $adZoneId, array $params = [])
+    {
+        return $this->exec('taobao.tbk.content.get', array_merge(['adzone_id' => $adZoneId], $params));
+    }
+
+    /**
      * 淘宝客-推广者-物料搜索
      * @param string $adZoneId mm_xxx_xxx_12345678三段式的最后一段数字
      * @param array $params 参数太多了，看链接 https://open.taobao.com/api.htm?docId=35896&docType=2

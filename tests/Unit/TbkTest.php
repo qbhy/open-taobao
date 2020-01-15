@@ -78,6 +78,13 @@ class TbkTest extends TestCase
         $this->assertOk($result);
     }
 
+    public function testGetContent()
+    {
+        ($result = $this->getApp()->tbk->getContent(getenv('taobao.adZoneId')));
+
+        $this->assertOk($result);
+    }
+
     public function testSearchMaterial()
     {
         ($result = $this->getApp()->tbk->searchMaterial(getenv('taobao.adZoneId'), ['q' => '运动鞋']));
