@@ -122,6 +122,16 @@ class Tbk extends Module
     }
 
     /**
+     * 淘宝客-公用-链接解析出商品id
+     * @param string $url 长链接或短链接
+     * @return array
+     */
+    public function urlExtract(string $url)
+    {
+        return $this->exec('taobao.tbk.item.click.extract', ['click_url' => $url]);
+    }
+
+    /**
      * 淘宝客-推广者-物料搜索
      * @param string $adZoneId mm_xxx_xxx_12345678三段式的最后一段数字
      * @param array $params 参数太多了，看链接 https://open.taobao.com/api.htm?docId=35896&docType=2
