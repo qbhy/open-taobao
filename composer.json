@@ -13,12 +13,12 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "hanson/foundation-sdk": "^3.0",
         "ext-json": "*"
     },
     "require-dev": {
-        "laravel/framework": "^6.0",
+        "Illuminate/support": "^6.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
