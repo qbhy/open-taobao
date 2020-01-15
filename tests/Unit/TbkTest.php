@@ -8,7 +8,7 @@ class TbkTest extends TestCase
 {
     public function testGetRecommends()
     {
-        ($result = $this->getApp()->tbk->getRecommends('123', 'title'));
+        ($result = $this->getApp()->tbk->getRecommends('595866143271', 'title'));
 
         $this->assertOk($result);
     }

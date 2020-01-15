@@ -1,6 +1,11 @@
 {
     "name": "96qbhy/open-taobao",
     "description": "淘宝开放平台sdk",
+    "keywords": [
+        "淘宝",
+        "淘宝开放平台",
+        "淘宝客"
+    ],
     "authors": [
         {
             "name": "qbhy",
