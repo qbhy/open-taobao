@@ -1,6 +1,14 @@
 # open-taobao 
 淘宝开放平台sdk (含淘宝客API)，支持 laravel。
 
+* API 齐全
+* 丰富合理的注释
+* 支持 `composer` 安装
+* 支持 `laravel/lumen` 框架
+
+## 部分代码截图
+[代码截图](code.png)
+
 ## 安装 - install
 ```bash
 $ composer require 96qbhy/open-taobao

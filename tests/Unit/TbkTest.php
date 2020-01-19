@@ -115,7 +115,7 @@ class TbkTest extends TestCase
 
     public function testCreateTlj()
     {
-        var_dump($result = $this->getApp()->tbk->createTlj(getenv('taobao.adZoneId'), '595866143271', '测试淘礼金', 10, 1));
+        ($result = $this->getApp()->tbk->createTlj(getenv('taobao.adZoneId'), '595866143271', '测试淘礼金', 10, 1));
 
         $this->assertOk($result);
     }
