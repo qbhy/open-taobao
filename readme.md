@@ -7,7 +7,7 @@
 * 支持 `laravel/lumen` 框架
 
 ## 部分代码截图
-[代码截图](code.png)
+![代码截图](code.png)
 
 ## 安装 - install
 ```bash
