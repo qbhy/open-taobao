@@ -3,6 +3,7 @@
 
 * API 齐全
 * 丰富合理的注释
+* 完善的参数提示
 * 支持 `composer` 安装
 * 支持 `laravel/lumen` 框架
 
