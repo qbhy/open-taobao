@@ -18,7 +18,6 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "Illuminate/support": "^6.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
