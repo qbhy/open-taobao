@@ -9,6 +9,7 @@ use Hanson\Foundation\Foundation;
  * @property-read AccessToken $access_token
  *
  * @property-read Tbk $tbk 淘宝客API
+ * @property-read User $user 用户API
  */
 class OpenTaobao extends Foundation
 {
