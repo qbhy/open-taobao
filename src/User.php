@@ -14,7 +14,7 @@ class User extends Module
      */
     public function itemConvert(array $numIid, $adzoneId, $fields = 'num_iid,click_url', array $params = [])
     {
-        return $this->exec('taobao.tbk.item.recommend.get', array_merge($params, [
+        return $this->exec('taobao.tbk.item.convert', array_merge($params, [
             'fields' => $fields,
             'num_iid' => implode(',', $numIid),
             'adzone_id' => $adzoneId
@@ -31,7 +31,7 @@ class User extends Module
      */
     public function shopConvert(array $users, $fields, $adzoneId, array $params = [])
     {
-        return $this->exec('taobao.tbk.item.recommend.get', array_merge($params, [
+        return $this->exec('taobao.tbk.shop.convert', array_merge($params, [
             'fields' => $fields,
             'num_iid' => implode(',', $users),
             'adzone_id' => $adzoneId
